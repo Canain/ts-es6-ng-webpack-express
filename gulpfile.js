@@ -13,7 +13,11 @@ gulp.task('webpack', () => {
 		.pipe(gulp.dest('./'));
 });
 
-const server = gls.new(['server/js/app.js']);
+const server = gls('server/js/app.js', {
+	env: {
+		NODE_ENV: 'development'
+	}
+});
 
 gulp.task('ts', () => {
 	const tsProject = ts.createProject('src/ts/server/tsconfig.json');
@@ -31,7 +35,8 @@ gulp.task('serve', ['ts'], () => {
 gulp.task('watch-serve', ['serve'], () => {
 	gulp.watch('src/ts/server/**/*.ts', ['serve']);
 	gulp.watch('pub/**/*', (file) => {
-		server.notify([file]);
+		console.log(file);
+		server.notify.bind(server)(file);
 	});
 });
 
