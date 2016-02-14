@@ -1,7 +1,7 @@
 /// <reference path="../../../typings/browser.d.ts" />
 'use strict';
 
-require('../../../bower_components/angular/angular.js');
+require('angular/angular.js');
 
 class Print {
 	

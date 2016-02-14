@@ -2,6 +2,7 @@
 const webpack = require('webpack');
 
 module.exports = {
+	watch: true,
 	entry: './src/ts/browser/main.ts',
 	output: {
 		filename: './pub/bundle.js',
@@ -17,5 +18,8 @@ module.exports = {
 				loader: 'babel?presets[]=es2015!ts'
 			}
 		]
+	},
+	resolve: {
+		modulesDirectories: ['node_modules', 'bower_components']
 	}
 };
