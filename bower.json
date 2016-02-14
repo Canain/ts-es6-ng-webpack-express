@@ -1,0 +1,23 @@
+{
+  "name": "ts-es6-ng-webpack-express",
+  "description": "Template for AngularJS 1.5 TypeScript ES6 Webpack Web App using Node.js Express and Gulp",
+  "main": "pub/index.html",
+  "authors": [
+    "Shuyang Chen <sc1085@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Canain/ts-es6-ng-webpack-express",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "pub/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0"
+  }
+}
