@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "postinstall": "bower install && typings install",
-    "test": "gulp start"
+    "start": "gulp watch"
   },
   "author": "Shuyang Chen <sc1085@gmail.com>",
   "license": "MIT",
