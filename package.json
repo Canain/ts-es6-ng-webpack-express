@@ -1,5 +1,5 @@
 {
-  "name": "typescript-es6-angular-webpack-express",
+  "name": "ts-es6-ng-webpack-express",
   "version": "0.0.1",
   "description": "Template for AngularJS 1.5 TypeScript ES6 Webpack Web App using Node.js Express and Gulp",
   "main": "app.js",
