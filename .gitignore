@@ -107,7 +107,7 @@ bower_components
 
 typings
 
-pub/bundle.js
-pub/bundle.js.map
+./pub/bundle.js
+./pub/bundle.js.map
 
-server
+./server
