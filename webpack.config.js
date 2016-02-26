@@ -6,20 +6,29 @@ module.exports = {
 	entry: './src/ts/browser/main.ts',
 	output: {
 		filename: './pub/bundle.js',
-		devtool: 'source-map',
-		resolve: {
-			extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
-		},
 	},
 	module: {
 		loaders: [
 			{
 				test: /\.ts$/,
 				loader: 'babel?presets[]=es2015!ts'
-			}
+			},
+			{
+				test: /\.json$/,
+				loader: 'json-loader'
+			},
+			{
+                test: /\.scss$/,
+                loaders: ["style", "css?sourceMap", "sass?sourceMap"]
+            }
 		]
 	},
+	node: {
+		fs: 'empty'
+	},
+	devtool: 'source-map',
 	resolve: {
-		modulesDirectories: ['node_modules', 'bower_components']
+		modulesDirectories: ['node_modules'],
+		extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
 	}
 };

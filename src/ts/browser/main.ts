@@ -1,18 +1,14 @@
 /// <reference path="../../../typings/browser.d.ts" />
 'use strict';
 
-require('angular/angular.js');
+require('angular');
 
-class Print {
-	
-	message: string;
-	
-	constructor(content: string) {
-		this.message = `Printing ${content}`;
-	}
-	
-	print() {
-		return this.message;
+require("!style!css!sass!../../sass/style.scss");
+
+class WebpackExpress {
+
+	constructor($log, $window, $location, $scope, $timeout) {
+		
 	}
 }
 
@@ -22,7 +18,5 @@ angular.module('App', []).controller('Ctrl', [
 	'$location',
 	'$scope',
 	'$timeout',
-	function ($log, $window, $location, $scope, $timeout) {
-		this.print = new Print('test');
-	}
+	WebpackExpress
 ]);

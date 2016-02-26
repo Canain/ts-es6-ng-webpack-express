@@ -1,13 +1,13 @@
 {
-  "name": "ts-es6-ng-webpack-express",
-  "description": "Template for AngularJS 1.5 TypeScript ES6 Webpack Web App using Node.js Express and Gulp",
+  "name": "webpack-express",
+  "description": "AngularJS Socket.io TypeScript ES6 Babel Webpack Bower Node Express Gulp Livereload Watch Template",
   "main": "pub/index.html",
   "authors": [
     "Shuyang Chen <sc1085@gmail.com>"
   ],
-  "license": "MIT",
-  "homepage": "https://github.com/Canain/ts-es6-ng-webpack-express",
+  "license": "UNLICENSED",
   "moduleType": [],
+  "homepage": "https://github.com/Canain/webpack-express",
   "private": true,
   "ignore": [
     "**/.*",
@@ -18,6 +18,6 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.5.0"
+    "socket.io-client": "^1.4.5"
   }
 }

@@ -17,7 +17,7 @@ const server = gls('server/js/app.js', {
 	env: {
 		NODE_ENV: 'development'
 	}
-});
+}, 5000);
 
 gulp.task('ts', () => {
 	const tsProject = ts.createProject('src/ts/server/tsconfig.json');
@@ -25,7 +25,7 @@ gulp.task('ts', () => {
 	return merge([
 		tsResult.dts.pipe(gulp.dest('server/definitions')),
 		tsResult.js.pipe(gulp.dest('server/js'))
-	]);
+	]).on('error', console.error);
 });
 
 gulp.task('serve', ['ts'], () => {
@@ -35,7 +35,6 @@ gulp.task('serve', ['ts'], () => {
 gulp.task('watch-serve', ['serve'], () => {
 	gulp.watch('src/ts/server/**/*.ts', ['serve']);
 	gulp.watch('pub/**/*', (file) => {
-		console.log(file);
 		server.notify.bind(server)(file);
 	});
 });
