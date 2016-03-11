@@ -1,6 +1,6 @@
 {
   "name": "webpack-express",
-  "description": "AngularJS Socket.io TypeScript ES6 Babel Webpack Bower Node Express Gulp Livereload Watch Template",
+  "description": "Webpack Express Template",
   "main": "pub/index.html",
   "authors": [
     "Shuyang Chen <sc1085@gmail.com>"
@@ -17,7 +17,5 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "socket.io-client": "^1.4.5"
-  }
+  "dependencies": {}
 }

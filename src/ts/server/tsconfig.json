@@ -2,6 +2,10 @@
 	"compilerOptions": {
 		"target": "es6",
 		"sourceMap": true,
-		"outDir": "../../../server"
-	}
+		"outDir": "../../../server",
+		"module": "commonjs"
+	},
+	"files": [
+		"app.ts"
+	]
 }

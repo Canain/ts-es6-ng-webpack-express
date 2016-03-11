@@ -6,11 +6,30 @@ const webpack = require('webpack-stream');
 const ts = require('gulp-typescript');
 const merge = require('merge2');
 const gls = require('gulp-live-server');
+const runSequence = require('run-sequence');
+const uglify = require('gulp-uglify');
 
 gulp.task('webpack', () => {
 	return gulp.src('src/ts/browser/main.ts')
 		.pipe(webpack(require('./webpack.config.js')))
 		.pipe(gulp.dest('./'));
+});
+
+gulp.task('webpack-prod', () => {
+	return gulp.src('src/ts/browser/main.ts')
+		.pipe(webpack(require('./webpack.prod.config.js')))
+		.pipe(gulp.dest('./'));
+});
+
+gulp.task('uglify-prod', () => {
+	return gulp.src('pub/bundle.js').pipe(uglify({
+		mangle: true,
+		compress: true
+	})).pipe(gulp.dest('pub'));
+});
+
+gulp.task('build-prod', (done) => {
+	runSequence('webpack-prod', 'uglify-prod', done);
 });
 
 const server = gls('server/js/app.js', {
@@ -39,6 +58,6 @@ gulp.task('watch-serve', ['serve'], () => {
 	});
 });
 
-gulp.task('watch', ['webpack', 'watch-serve']);
+gulp.task('watch', ['watch-serve', 'webpack']);
 
 gulp.task('default', ['watch']);

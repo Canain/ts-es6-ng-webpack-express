@@ -1,9 +1,8 @@
 /// <reference path="../../../typings/main.d.ts" />
 'use strict';
 
-const express = require('express');
-const http = require('http');
-const socketio = require('socket.io');
+import express = require('express');
+import http = require('http');
 
 const port = 8080;
 
@@ -15,13 +14,7 @@ app
 }))
 .use(express.static('pub'));
 
-const httpServer = http.Server(app);
-
-const server: SocketIO.Server = socketio(httpServer);
-
-server.on('connection', (socket) => {
-	console.log(socket);
-});
+const httpServer = (<any>http).Server(app);
 
 httpServer.listen(port, () => {
 	console.log(`Listening on port ${port}`);
