@@ -44,7 +44,7 @@ gulp.task('ts', () => {
 	return merge([
 		tsResult.dts.pipe(gulp.dest('server/definitions')),
 		tsResult.js.pipe(gulp.dest('server/js'))
-	]).on('error', console.error);
+	]);
 });
 
 gulp.task('serve', ['ts'], () => {
