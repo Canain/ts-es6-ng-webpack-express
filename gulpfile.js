@@ -11,7 +11,7 @@ const uglify = require('gulp-uglify');
 
 gulp.task('webpack', () => {
 	return gulp.src('src/ts/browser/main.ts')
-		.pipe(webpack(require('./webpack.config.js')))
+		.pipe(webpack(require('./webpack.config.js')).on('error', console.error))
 		.pipe(gulp.dest('./'));
 });
 
