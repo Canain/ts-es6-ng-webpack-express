@@ -17,9 +17,9 @@ module.exports = {
 				loader: 'json-loader'
 			},
 			{
-                test: /\.scss$/,
-                loaders: ["style", "css?sourceMap", "sass?sourceMap"]
-            }
+				test: /\.scss$/,
+				loaders: ["style", "css?sourceMap", "sass?sourceMap"]
+			}
 		]
 	},
 	node: {
