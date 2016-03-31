@@ -22,7 +22,7 @@ const server = io(httpServer);
 server.on('connection', socket => {
 	const log = 'Hello ' + socket.id;
 	console.log(log);
-	socket.emit('up', log);
+	socket.emit('hello', log);
 });
 
 httpServer.listen(port, () => {
