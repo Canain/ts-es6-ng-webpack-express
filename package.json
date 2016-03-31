@@ -27,6 +27,8 @@
     "node-sass": "^3.4.2",
     "run-sequence": "^1.1.5",
     "sass-loader": "^3.1.2",
+    "socket.io": "^1.4.5",
+    "socket.io-client": "^1.4.5",
     "style-loader": "^0.13.0",
     "ts-loader": "^0.8.1",
     "typescript": "^1.7.5",
