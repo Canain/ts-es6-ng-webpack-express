@@ -17,5 +17,7 @@
     "test",
     "tests"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "angular-material": "master"
+  }
 }
