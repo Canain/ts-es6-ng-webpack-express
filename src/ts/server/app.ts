@@ -17,13 +17,13 @@ app
 
 const httpServer = (<any>http).Server(app);
 
-const server = io(httpServer);
+// const server = io(httpServer);
 
-server.on('connection', socket => {
-	const log = 'Hello ' + socket.id;
-	console.log(log);
-	socket.emit('hello', log);
-});
+// server.on('connection', socket => {
+// 	const log = 'Hello ' + socket.id;
+// 	console.log(log);
+// 	socket.emit('hello', log);
+// });
 
 httpServer.listen(port, () => {
 	console.log(`Listening on port ${port}`);
