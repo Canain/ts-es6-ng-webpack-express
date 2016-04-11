@@ -21,7 +21,7 @@ class MainCtrl {
 	
 	content: string;
 	
-	constructor(public $timeout: angular.ITimeoutService) {
+	constructor(public $mdDialog: angular.material.IDialogService, public $timeout: angular.ITimeoutService) {
 		this.content = 'Angular Loaded';
 	}
 }
