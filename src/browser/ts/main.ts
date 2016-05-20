@@ -1,4 +1,4 @@
-require("../sass/style.scss");
+require("../css/style.css");
 
 document.addEventListener("DOMContentLoaded", () => {
 	const h1 = document.createElement('h1');

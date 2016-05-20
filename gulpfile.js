@@ -31,7 +31,7 @@ gulp.task('build-prod', done => {
 	runSequence('webpack-prod', 'uglify-prod', done);
 });
 
-const server = gls('server/js/server.js', {
+const server = gls('server/js/src/server/ts/server.js', {
 	env: {
 		NODE_ENV: 'development'
 	}

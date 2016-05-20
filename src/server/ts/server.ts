@@ -1,15 +1,16 @@
 import express = require('express');
 import http = require('http');
+import livereload = require('connect-livereload');
 
 const port = 8080;
 
 const app = express();
 
 app
-.use(require('connect-livereload')({
+.use(livereload({
 	port: 5000
 }))
-.use(express.static('pub'));
+.use(express.static('www'));
 
 const httpServer = (<any>http).Server(app);
 

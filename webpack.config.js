@@ -1,8 +1,10 @@
 const webpack = require('webpack');
+const precss = require('precss');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
 	watch: true,
-	entry: './src/ts/browser/main.ts',
+	entry: './src/browser/ts/main.ts',
 	output: {
 		filename: './www/bundle.js',
 	},
@@ -17,11 +19,12 @@ module.exports = {
 				loader: 'json-loader'
 			},
 			{
-				test: /\.scss$/,
-				loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
+				test: /\.css$/,
+				loader: 'style-loader!css-loader!postcss-loader'
 			}
 		]
 	},
+	postcss: () => [precss, autoprefixer],
 	node: {
 		fs: 'empty'
 	},
