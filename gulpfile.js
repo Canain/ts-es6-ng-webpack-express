@@ -1,4 +1,3 @@
-/// <reference path="typings/main.d.ts" />
 'use strict';
 
 const gulp = require('gulp');
@@ -10,39 +9,39 @@ const runSequence = require('run-sequence');
 const uglify = require('gulp-uglify');
 
 gulp.task('webpack', () => {
-	return gulp.src('src/ts/browser/main.ts')
+	return gulp.src('src/browser/ts/main.ts')
 		.pipe(webpack(require('./webpack.config.js')).on('error', console.error))
 		.pipe(gulp.dest('./'));
 });
 
 gulp.task('webpack-prod', () => {
-	return gulp.src('src/ts/browser/main.ts')
+	return gulp.src('src/browser/ts/main.ts')
 		.pipe(webpack(require('./webpack.prod.config.js')))
 		.pipe(gulp.dest('./'));
 });
 
 gulp.task('uglify-prod', () => {
-	return gulp.src('pub/bundle.js').pipe(uglify({
+	return gulp.src('www/bundle.js').pipe(uglify({
 		mangle: true,
 		compress: true
-	})).pipe(gulp.dest('pub'));
+	})).pipe(gulp.dest('www'));
 });
 
-gulp.task('build-prod', (done) => {
+gulp.task('build-prod', done => {
 	runSequence('webpack-prod', 'uglify-prod', done);
 });
 
-const server = gls('server/js/app.js', {
+const server = gls('server/js/server.js', {
 	env: {
 		NODE_ENV: 'development'
 	}
 }, 5000);
 
 gulp.task('ts', () => {
-	const tsProject = ts.createProject('src/ts/server/tsconfig.json');
+	const tsProject = ts.createProject('src/server/ts/tsconfig.json');
 	const tsResult = tsProject.src().pipe(ts(tsProject));
 	return merge([
-		tsResult.dts.pipe(gulp.dest('server/definitions')),
+		tsResult.dts.pipe(gulp.dest('server/dts')),
 		tsResult.js.pipe(gulp.dest('server/js'))
 	]);
 });
@@ -52,8 +51,8 @@ gulp.task('serve', ['ts'], () => {
 });
 
 gulp.task('watch-serve', ['serve'], () => {
-	gulp.watch('src/ts/server/**/*.ts', ['serve']);
-	gulp.watch('pub/**/*', (file) => {
+	gulp.watch('src/server/ts/**/*.ts', ['serve']);
+	gulp.watch('www/**/*', (file) => {
 		server.notify.bind(server)(file);
 	});
 });

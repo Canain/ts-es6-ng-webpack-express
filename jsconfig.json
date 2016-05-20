@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs"
+	},
+	"files": [
+		"typings/index.d.ts",
+		"webpack.config.js",
+		"webpack.prod.config.js",
+		"gulpfile.js"
+	]
+}

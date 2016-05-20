@@ -1,26 +1,25 @@
-/// <reference path="typings/main.d.ts" />
 const webpack = require('webpack');
 
 module.exports = {
 	watch: true,
 	entry: './src/ts/browser/main.ts',
 	output: {
-		filename: './pub/bundle.js',
+		filename: './www/bundle.js',
 	},
 	module: {
 		loaders: [
 			{
 				test: /\.ts$/,
-				loader: 'babel?presets[]=es2015!ts'
+				loader: 'ts'
 			},
 			{
 				test: /\.json$/,
 				loader: 'json-loader'
 			},
 			{
-                test: /\.scss$/,
-                loaders: ["style", "css?sourceMap", "sass?sourceMap"]
-            }
+				test: /\.scss$/,
+				loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
+			}
 		]
 	},
 	node: {
