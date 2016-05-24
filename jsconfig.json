@@ -7,6 +7,7 @@
 		"typings/index.d.ts",
 		"webpack.config.js",
 		"webpack.prod.config.js",
-		"gulpfile.js"
+		"gulpfile.js",
+		"app.js"
 	]
 }

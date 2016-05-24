@@ -7,6 +7,7 @@ const merge = require('merge2');
 const gls = require('gulp-live-server');
 const runSequence = require('run-sequence');
 const uglify = require('gulp-uglify');
+const htmlmin = require('gulp-htmlmin');
 
 gulp.task('webpack', () => {
 	return gulp.src('src/browser/ts/main.ts')
@@ -46,12 +47,21 @@ gulp.task('ts', () => {
 	]);
 });
 
+gulp.task('html', () => {
+	return gulp.src('src/browser/html/**/*.html')
+		.pipe(htmlmin({
+			collapseWhitespace: true
+		}))
+		.pipe(gulp.dest('www'));
+});
+
 gulp.task('serve', ['ts'], () => {
 	server.start();
 });
 
-gulp.task('watch-serve', ['serve'], () => {
+gulp.task('watch-serve', ['serve', 'html'], () => {
 	gulp.watch('src/server/ts/**/*.ts', ['serve']);
+	gulp.watch('src/browser/html/**/*.html', ['html']);
 	gulp.watch('www/**/*', (file) => {
 		server.notify.bind(server)(file);
 	});

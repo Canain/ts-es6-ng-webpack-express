@@ -111,3 +111,4 @@ bundle.js
 bundle.js.map
 
 /server
+/www/**/*.html
